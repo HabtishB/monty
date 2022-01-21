@@ -9,24 +9,20 @@
 
 void pint(stack_t **top, unsigned int line_number)
 {
-  if (top != NULL and *top != NULL)
+  stack_t *tmp;
+  if (top != NULL && *top != NULL)
     {
+    
       tmp = *top;
-      while (tmp ->prev == NULL)
-	break;
+      while (tmp->prev == NULL)
+      break;
       tmp = tmp->prev;
      }
-  printf("%d", tmp->n);
-    
-  else:
+      
+  else
     {
-      printf("%d", line, "can't pint, stack empty");
+      printf("%d can't prin, stack empty", line_number);
       exit(EXIT_FAILURE);
     }
-
-  
-
-  
-
-  
+ printf("%d", tmp->n);
 }

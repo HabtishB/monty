@@ -8,40 +8,40 @@
  * Return: does not return anything (void)
  */
 
-void push(stack_t **top, unsigned int line_number, int data)
+void push(stack_t **top, unsigned int line_number, char *arg)
 {
-  *top == NULL;
+  *top = NULL;
 
   if (top == NULL)
     {
       printf("The stack could not be accessed");
-      exit;
+      exit(EXIT_FAILURE);
     }
-
-  newnode = (stack_t*)malloc(sizeof(stack_t));
+  stack_t *new_node;
+  new_node = (stack_t*)malloc(sizeof(stack_t));
 
   {
-    if (newnode == NULL)
+    if (new_node == NULL)
       {
 	printf("Error: malloc failed");
-	exit("EXIT_FAILURE");
+	exit(EXIT_FAILURE);
       }
-    newnode->node = n;
-    newnode->prev = NULL;
-    newnode->next = *top;
+    new_node->n = atoi(arg);
+    new_node->prev = NULL;
+    new_node->next = *top;
     
-    *top = newnode;
+    *top = new_node;
   }
 }
 
 void pall(stack_t  **top)
 {
-  stack_t temp;
+  stack_t *tmp;
 
-  temp = *top;
-  while (temp != NULL)  
+  tmp = *top;
+  while (tmp != NULL)  
     {
-      printf("%d", temp->n);
-      temp = temp->next;
+      printf("%d", tmp->n);
+      tmp = tmp->next;
     }
 }
